@@ -13,11 +13,11 @@
     <div class="container">
         <div class="box">
             <p>Sign In</p>
-            <form action="">
-                <input id="box_color-1" type="text" placeholder="Username" onkeyup="validateName()">
+            <form action="authentication.php" method="post">
+                <input id="rollnumber" name="rollnumber" type="text" placeholder="Roll Number" onkeyup="validateName()">
                 <div class="msg" id="user-msg"></div>
 
-                <input id="box_color-2" type="password" placeholder="Password" onkeyup="validatePass()">
+                <input id="password" name="password" type="password" placeholder="Password" onkeyup="validatePass()">
                 <div class="msg" id="pass-msg"></div>
 
                 <button onclick="submitForm()">Submit</button>
@@ -30,19 +30,19 @@
 
 <script>
 
-    let passbox = document.getElementById('box_color-2');
+    let passbox = document.getElementById('password');
     let passmsg = document.getElementById('pass-msg');
-    let namebox = document.getElementById('box_color-1');
+    let namebox = document.getElementById('rollnumber');
     let namemsg = document.getElementById('user-msg');
     var check = 0;
-    var check1 = 0;
+    var check1 = 1;
 
     function validateName(){
         if(namebox.value.length >= 0 && namebox.value.length<=4){
             namebox.style.borderColor = 'rgba(0, 0, 0, 0.4)';
             namemsg.innerHTML = "Username must be greater than 4 characters";
             namemsg.style.color = 'rgb(231, 231, 231)';
-            check = 0;
+            check = 1;
             
         }
         else{
@@ -52,40 +52,17 @@
         }
     }
 
-    function validatePass() {
+    // function validatePass() {
 
-        if(passbox.value.length == 0){
-            passbox.style.borderColor = 'rgba(0, 0, 0, 0.4)';
-            passmsg.innerHTML = "Password must contain alphabets, digits and special symbol";
-            passmsg.style.color = 'rgb(231, 231, 231)';
-            check1 = 0;
+    //     if(passbox.value.length == 0){
+    //         passbox.style.borderColor = 'rgba(0, 0, 0, 0.4)';
+    //         passmsg.innerHTML = "Password must contain alphabets, digits and special symbol";
+    //         passmsg.style.color = 'rgb(231, 231, 231)';
+    //         check1 = 1;
             
-        }
-
-        else if (passbox.value.length > 0) {
-            
-            if (passbox.value.match(/[A-Za-z]/g) && passbox.value.match(/[0-9]/g) && passbox.value.match(/[@ | & | $ | , | ? | / | * | ~ | # | % | _ | - | ` | ! | /]/g)) {
-                passbox.style.borderColor = '#03c04A';
-                passmsg.innerHTML = "Strong Password";
-                passmsg.style.color = '#03c04A';
-                check1 = 1;
-            }
-
-            else if (passbox.value.match(/[A-Za-z]/g) && (passbox.value.match(/[0-9]/g) || passbox.value.match(/[@ | & | $ | , | ? | / | * | ~ | # | % | _ | - | ` | ! | /]/g))){
-                passbox.style.borderColor = 'yellow';
-                passmsg.innerHTML = "Medium Password";
-                passmsg.style.color = 'yellow';
-                check1 = 0;
-            }
-
-            else{
-                passbox.style.borderColor = 'red';
-                passmsg.innerHTML = "Weak Password";
-                passmsg.style.color = 'red';
-                check1 = 0;
-            }
-        }
-    }
+    //     }
+       
+    // }
 
 
     function submitForm() {
