@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="gate-login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>Sign In</p>
+            <form action="gate-authentication.php" method="post">
+                <input id="username" name="username" type="text" placeholder="Username" onkeyup="validateName()">
+                <div class="msg" id="user-msg"></div>
+
+                <input id="password" name="password" type="password" placeholder="Password" onkeyup="validatePass()">
+                <div class="msg" id="pass-msg"></div>
+
+                <button onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+
+    let passbox = document.getElementById('password');
+    let passmsg = document.getElementById('pass-msg');
+    let namebox = document.getElementById('username');
+    let namemsg = document.getElementById('user-msg');
+    var check = 0;
+
+    function validateName(){
+        if(namebox.value.length >= 0 && namebox.value.length<=4){
+            namebox.style.borderColor = 'rgba(0, 0, 0, 0.4)';
+            namemsg.innerHTML = "Username must be greater than 4 characters";
+            namemsg.style.color = 'rgb(231, 231, 231)';
+            check = 1;
+            
+        }
+        else{
+            namebox.style.borderColor = '#03c04A';
+            namemsg.innerHTML = "";
+            check = 1;
+        }
+    }
+
+    function submitForm() {
+        if(check == 1){
+            alert('Form Submitted');
+        }
+        else{
+            alert("Please fill the form correctly");
+        }
+    }
+</script>
+
+</html>
