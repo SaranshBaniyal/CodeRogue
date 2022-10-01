@@ -7,16 +7,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>replit</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>QR Scanner</title>
+    <link href="scanner.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <script src="library.js"></script>
-
+<div class="wrapper">
+  <p class="msg">Enter Destination</p>
 <form action="student-dashboard.php" method="post">
 
-    Enter Destination:<input id="inp" name="destination" type="text" required>
+    <input id="inp" name="destination" type="text" placeholder="Write Here">
         <input id="otp" name="otp" type="text">
         <input id="rollnumber" name="rollnumber" type="number" value="<?php echo $_SESSION['rollnumber']; ?>">
         <input id="username" name="username" type="text" value="<?php echo $_SESSION['username']; ?>">
@@ -35,6 +36,7 @@
 
     <input id="sp" type="submit" onclick="subfun()">
 </form>
+  </div>
     <script type="text/javascript">
     
         let a = 0;

@@ -10,15 +10,15 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #ff4766;
+  background: #22cce2;
 }
 
 .wrapper{
   background: white;
   max-width: 410px;
   border-radius: 7px;
-  width: 400px;
   padding: 16px 25px;
+  /* width: 400px; */
 }
 
 h1{
@@ -56,6 +56,6 @@ button{
   color: white;
   cursor: pointer;
   margin-top: 20px;
-  background: #ff4766;
+  background: #22cce2;
   font-size: 17px;
 }
